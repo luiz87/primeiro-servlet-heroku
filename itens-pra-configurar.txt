@@ -1,0 +1,57 @@
+# criando o projeto direto do eclipse
+Escolher a opção Maven Project
+
+#Group Id
+org.apache.maven.archetype
+
+#Artifact Id
+maven-archetype-webapp
+
+#copiar as configurações do aquivo pom.xml
+https://github.com/heroku/devcenter-webapp-runner/blob/master/pom.xml
+
+#add a dependencia de servlet
+<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+<dependency>
+	<groupId>javax.servlet</groupId>
+	<artifactId>javax.servlet-api</artifactId>
+	<version>3.0.1</version>
+	<scope>provided</scope>
+</dependency>
+
+#configurar o nosso TomCat, necessário só uma vez
+
+#fazer teste se a aplicação esta OK
+
+#criar o arquivo
+Procfile
+
+#colar dentro
+web: java $JAVA_OPTS -jar target/dependency/webapp-runner.jar --port $PORT target/*.war
+
+# fluxo para gravar um novo git
+git init
+git add .
+git commit -m "Primeiro save"
+
+# criar um projeto na plataforma do heroku
+heroku create
+
+#fazer o deploy no heroku
+git push heroku master
+
+#fazer teste na plataforma do heroku
+
+#add a dependencia do mysql
+<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<version>8.0.20</version>
+</dependency>
+
+https://github.com/luiz87/primeiro-servlet-heroku.git
+https://tranquil-mountain-45785.herokuapp.com
+
+# clonar o projeto de exemplo lá do heroku
+git clone https://github.com/heroku/devcenter-webapp-runner
