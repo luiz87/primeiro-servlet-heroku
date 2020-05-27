@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Form de E-mail</title>
 </head>
 <body>
 	<h2>Digite seu email!</h2>

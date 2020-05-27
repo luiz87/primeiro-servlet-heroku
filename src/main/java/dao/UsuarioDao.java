@@ -2,14 +2,17 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import modelo.Usuario;
 
 public class UsuarioDao {
 	
+	// insert é C do nosso CRUD
 	public boolean incluir(Usuario usuario) {
-		
 		Connection conexao = Conexao.getConectar();
 		PreparedStatement pst;
 		try {
@@ -23,7 +26,28 @@ public class UsuarioDao {
 			e.printStackTrace();
 			return false;
 		}
-
+	}
+	
+	// listar R do nosso CRUD
+	public List<Usuario> listar() {
+		Connection conexao = Conexao.getConectar();
+		PreparedStatement pst;
+		try {
+			pst = conexao.prepareStatement("select * from usuario");
+			
+		 	ResultSet rs = pst.executeQuery();
+		 	List<Usuario> lsUsuario = new ArrayList<Usuario>();
+		 	while (rs.next()) {
+				Usuario u = new Usuario();
+				u.setId(rs.getInt("id"));
+				u.setEmail(rs.getString("email"));
+				lsUsuario.add(u);
+			}
+			return lsUsuario;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }
