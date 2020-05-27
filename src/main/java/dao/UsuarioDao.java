@@ -49,5 +49,42 @@ public class UsuarioDao {
 			return null;
 		}
 	}
+	
+	// listar R do nosso CRUD
+	public Usuario getUsuario(String id) {
+		Connection conexao = Conexao.getConectar();
+		PreparedStatement pst;
+		try {
+			pst = conexao.prepareStatement("select * from usuario where id = ?");
+			pst.setInt(1, Integer.parseInt(id));
+		 	ResultSet rs = pst.executeQuery();
+			Usuario u = new Usuario();
+		 	while (rs.next()) {
+				u.setId(rs.getInt("id"));
+				u.setEmail(rs.getString("email"));
+			}
+			return u;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public boolean atualizar(Usuario usuario) {
+		Connection conexao = Conexao.getConectar();
+		PreparedStatement pst;
+		try {
+			pst = conexao.prepareStatement("update usuario set email = ? where id = ? ");
+			pst.setString(1, usuario.getEmail());
+			pst.setInt(2, usuario.getId());
+			pst.execute();
+			pst.close();
+			conexao.close();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 
 }

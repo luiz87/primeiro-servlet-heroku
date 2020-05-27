@@ -19,7 +19,8 @@
 	List<Usuario> lsUsuarios = dao.listar();
 	
 	for(Usuario u : lsUsuarios){
-		out.print("<tr><td>"+u.getId()+"</td><td>"+u.getEmail()+"</td></tr>");	
+		out.print("<tr><td>"+u.getId()+"</td><td>"+u.getEmail()+"</td>"+
+	"<td> <a href='index.jsp?id="+u.getId()+"' >Editar</a> </td></tr>");	
 	}
 	
 	%>

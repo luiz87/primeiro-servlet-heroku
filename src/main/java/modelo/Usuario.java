@@ -5,6 +5,11 @@ public class Usuario {
 	private int id;
 	private String email;
 	
+	public Usuario() {
+		setId(-1);
+		setEmail("");
+	}
+	
 	public int getId() {
 		return id;
 	}

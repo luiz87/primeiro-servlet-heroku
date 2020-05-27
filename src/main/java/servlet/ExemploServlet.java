@@ -20,14 +20,23 @@ public class ExemploServlet extends HttpServlet {
 		UsuarioDao dao = new UsuarioDao();
 		Usuario usuario = new Usuario();
 		String email = req.getParameter("email");
+		String acao = req.getParameter("acao");
 		usuario.setEmail(email);
 		PrintWriter out = resp.getWriter();
 		out.print("<html><head><title>Meu Servlet</title></head><body>");
 		out.print("O email digistado foi: "+usuario.getEmail());	
 		
+		if(acao.equals("incluir")) {
+			if(dao.incluir(usuario)) {
+				out.print("Usuário inserido com sucesso!");
+			}	
+		}
 		
-		if(dao.incluir(usuario)) {
-			out.print("Usuário inserido com sucesso!");
+		if(acao.equals("atualizar")) {
+			usuario.setId(Integer.parseInt(req.getParameter("id")));
+			if(dao.atualizar(usuario)) {
+				out.print("Usuário atualizado com sucesso!");
+			}	
 		}
 		
 		out.print("<br>Olá Servlet</body></html>");
