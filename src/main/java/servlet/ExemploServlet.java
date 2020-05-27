@@ -36,6 +36,6 @@ public class ExemploServlet extends HttpServlet {
 			out.print("falha no Banco de Dados");
 		}
 		
-		out.print("<br>Ol√° Servlet</body></html>");
+		out.print("<br>Ol· Servlet</body></html>");
 	}
 }
