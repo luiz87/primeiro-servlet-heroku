@@ -24,6 +24,7 @@ public class ExemploServlet extends HttpServlet {
 		usuario.setEmail(email);
 		PrintWriter out = resp.getWriter();
 		out.print("<html><head><title>Meu Servlet</title></head><body>");
+		if(email != null) 
 		out.print("O email digistado foi: "+usuario.getEmail());	
 		
 		if(acao.equals("incluir")) {
@@ -37,6 +38,13 @@ public class ExemploServlet extends HttpServlet {
 			if(dao.atualizar(usuario)) {
 				out.print("Usuário atualizado com sucesso!");
 			}	
+		}
+		
+		if(acao.equals("excluir")) {
+			usuario.setId(Integer.parseInt(req.getParameter("id")));
+			if(dao.excluir(usuario)) {
+				out.print("Usuário excluido com sucesso!");
+			}
 		}
 		
 		out.print("<br>Olá Servlet</body></html>");

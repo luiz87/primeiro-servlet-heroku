@@ -27,5 +27,6 @@
 		<input type="text" name="email" value="<%out.print(u.getEmail());%>"><br>
 		<input type="submit">
 	</form>
+	<a href='listarUsuarios.jsp'>Lista</a>
 </body>
 </html>

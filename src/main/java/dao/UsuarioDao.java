@@ -87,4 +87,21 @@ public class UsuarioDao {
 		}
 	}
 
+	public boolean excluir(Usuario usuario) {
+		Connection conexao = Conexao.getConectar();
+		PreparedStatement pst;
+		
+		try {
+			pst = conexao.prepareStatement("delete from usuario where id = ?");
+			pst.setInt(1, usuario.getId());
+			pst.execute();
+			pst.close();
+			conexao.close();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+		
+	}
+
 }
