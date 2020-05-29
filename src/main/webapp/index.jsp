@@ -7,8 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Form de E-mail</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -37,11 +36,12 @@
 					</div>
 				</div>
 				<div class="col-sm-1">
-					<button type="submit" class="btn btn-primary">Enviar</button>
+					<button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-send"></span> Enviar</button>
 				</div>
 
 				<div class="col-sm-2">
-					<a href='listarUsuarios.jsp' class="btn btn-success">Listae
+					<a href='listarUsuarios.jsp' class="btn btn-success">
+					<span class="glyphicon glyphicon-list-alt"></span> Lista de
 						E-mails</a>
 				</div>
 

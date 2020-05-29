@@ -8,8 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Listar Usuários</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<title>Form de E-mail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
 	<div class="container">
@@ -27,12 +27,14 @@
 					List<Usuario> lsUsuarios = dao.listar();
 
 					for (Usuario u : lsUsuarios) {
-						out.print("<tr><td>" + u.getId() + "</td><td>" + u.getEmail() + "</td>" + "<td> <a class='btn' href='index.jsp?id="
-								+ u.getId() + "' >Editar</a></td>");
+						out.print("<tr><td>" + u.getId() + "</td><td>" + u.getEmail() + "</td>" + "<td> <a class='btn btn-info' href='index.jsp?id="
+								+ u.getId() + "' ><samp class='glyphicon glyphicon-edit'></samp>Editar</a></td>");
 				%>
 				<td><a class="btn btn-danger"
 					onclick="return confirm('Deseja realmente excluir esse registro?')"
-					href='exemploServler?acao=excluir&id=<%=u.getId()%>'>Excluir</a></td>
+					href='exemploServler?acao=excluir&id=<%=u.getId()%>'>
+					<samp class=""></samp>
+					Excluir</a></td>
 
 				<%
 					out.print("</tr>");
