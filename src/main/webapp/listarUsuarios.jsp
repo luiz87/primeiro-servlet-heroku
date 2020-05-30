@@ -28,13 +28,13 @@
 
 					for (Usuario u : lsUsuarios) {
 						out.print("<tr><td>" + u.getId() + "</td><td>" + u.getEmail() + "</td>" + "<td> <a class='btn btn-info' href='index.jsp?id="
-								+ u.getId() + "' ><samp class='glyphicon glyphicon-edit'></samp>Editar</a></td>");
+								+ u.getId() + "' ><samp class='glyphicon glyphicon-edit'></samp></a>");
 				%>
-				<td><a class="btn btn-danger"
+				<a class="btn btn-danger"
 					onclick="return confirm('Deseja realmente excluir esse registro?')"
 					href='exemploServler?acao=excluir&id=<%=u.getId()%>'>
-					<samp class=""></samp>
-					Excluir</a></td>
+					<samp class="glyphicon glyphicon-remove"></samp>
+					</a></td>
 
 				<%
 					out.print("</tr>");

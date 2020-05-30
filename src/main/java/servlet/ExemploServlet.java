@@ -23,30 +23,49 @@ public class ExemploServlet extends HttpServlet {
 		String acao = req.getParameter("acao");
 		usuario.setEmail(email);
 		PrintWriter out = resp.getWriter();
-		out.print("<html><head><title>Meu Servlet</title></head><body>");
+
+		String conteudo = "";
 		if(email != null) 
-		out.print("O email digistado foi: "+usuario.getEmail());	
+			conteudo += "<h2>O email digitado foi: "+usuario.getEmail()+"</h2>";	
 		
 		if(acao.equals("incluir")) {
 			if(dao.incluir(usuario)) {
-				out.print("Usuário inserido com sucesso!");
+				conteudo += "<div class='alert alert-success'>";
+				conteudo += "  <strong>Inserido!</strong> Usuário inserido com sucesso.";
+				conteudo += "</div>";
 			}	
 		}
 		
 		if(acao.equals("atualizar")) {
 			usuario.setId(Integer.parseInt(req.getParameter("id")));
 			if(dao.atualizar(usuario)) {
-				out.print("Usuário atualizado com sucesso!");
+				conteudo += "<div class='alert alert-info'>";
+				conteudo += "  <strong>Alterado!</strong> Usuário atualizado com sucesso.";
+				conteudo += "</div>";
 			}	
 		}
 		
 		if(acao.equals("excluir")) {
 			usuario.setId(Integer.parseInt(req.getParameter("id")));
 			if(dao.excluir(usuario)) {
-				out.print("Usuário excluido com sucesso!");
+				conteudo += "<div class='alert alert-danger'>";
+				conteudo += "  <strong>Excluido!</strong> Usuário excluido com sucesso.";
+				conteudo += "</div>";
 			}
 		}
 		
-		out.print("<br>Olá Servlet</body></html>");
+		out.print("<!DOCTYPE html>																							");
+		out.print("<html>                                                                                                   ");
+		out.print("<head>                                                                                                   ");
+		out.print("<meta charset=\"UTF-8\">                                                                                   ");
+		out.print("<title>Form de E-mail</title>                                                                            ");
+		out.print("    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\"> ");
+		out.print("</head>                                                                                                  ");
+		out.print("<body>                                                                                                   ");
+		out.print("<div class='container'>");
+		out.print(conteudo);
+		out.print("</div>");
+		out.print("<body>                                                                                                   ");
+		out.print("</html>                                                                                                  ");
 	}
 }
