@@ -56,14 +56,15 @@ public class ExemploServlet extends HttpServlet {
 		
 		out.print("<!DOCTYPE html>																							");
 		out.print("<html>                                                                                                   ");
-		out.print("<head>                                                                                                   ");
-		out.print("<meta charset=\"UTF-8\">                                                                                   ");
+		out.print("<head>                                                                                                      ");
 		out.print("<title>Form de E-mail</title>                                                                            ");
 		out.print("    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\"> ");
 		out.print("</head>                                                                                                  ");
 		out.print("<body>                                                                                                   ");
 		out.print("<div class='container'>");
 		out.print(conteudo);
+		out.print("<a href='index.jsp' class='btn btn-primary'><span class='glyphicon glyphicon-new-window'></span>Novo</a>");
+		out.print("<a href='listarUsuarios.jsp' class='btn btn-success'><span class='glyphicon glyphicon-list-alt'></span> Lista de E-mails</a>");
 		out.print("</div>");
 		out.print("<body>                                                                                                   ");
 		out.print("</html>                                                                                                  ");

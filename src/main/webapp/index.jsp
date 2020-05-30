@@ -40,9 +40,7 @@
 				</div>
 
 				<div class="col-sm-2">
-					<a href='listarUsuarios.jsp' class="btn btn-success">
-					<span class="glyphicon glyphicon-list-alt"></span> Lista de
-						E-mails</a>
+					<a href='listarUsuarios.jsp' class="btn btn-success"><span class="glyphicon glyphicon-list-alt"></span> Lista de E-mails</a>
 				</div>
 
 			</div>
